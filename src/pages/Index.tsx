@@ -17,7 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Priority, FilterStatus, SortOption } from "@/types/task";
-import { Search, Keyboard, Trash2 } from "lucide-react";
+import { Search, Keyboard, Trash2, Leaf, Flower, TreeDeciduous } from "lucide-react";
+import { BotanicalBackground } from "@/components/BotanicalBackground";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -120,22 +121,28 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container max-w-7xl mx-auto py-8 px-4">
+    <div className="min-h-screen bg-background relative">
+      <BotanicalBackground />
+      
+      <div className="container max-w-7xl mx-auto py-10 px-4 relative z-10">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 animate-gentle-fade-in">
           <div>
-            <h1 className="text-4xl font-bold mb-2">TaskMaster</h1>
-            <p className="text-muted-foreground">
-              Organize your tasks with keyboard shortcuts
+            <h1 className="text-5xl font-bold mb-2 flex items-center gap-3 text-accent">
+              <TreeDeciduous className="h-12 w-12 animate-gentle-bounce" />
+              Garden of Tasks
+            </h1>
+            <p className="text-muted-foreground flex items-center gap-2 text-lg">
+              <Leaf className="h-4 w-4 text-accent" />
+              Cultivate productivity in your peaceful digital meadow
             </p>
           </div>
           <Button
             variant="outline"
             onClick={() => setShowHelp(true)}
-            className="gap-2"
+            className="gap-2 shadow-soft hover:shadow-medium transition-all"
           >
-            <Keyboard className="h-4 w-4" />
+            <Flower className="h-4 w-4 text-accent" />
             Shortcuts (?)
           </Button>
         </div>
@@ -163,11 +170,11 @@ const Index = () => {
             {stats.completed > 0 && (
               <Button
                 variant="destructive"
-                className="w-full gap-2"
+                className="w-full gap-2 shadow-soft hover:shadow-medium transition-all"
                 onClick={handleDeleteAllCompleted}
               >
                 <Trash2 className="h-4 w-4" />
-                Clear Completed ({stats.completed})
+                Clear Harvested ({stats.completed})
               </Button>
             )}
           </aside>
@@ -206,13 +213,20 @@ const Index = () => {
             </div>
 
             {/* Task List */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               {sortedTasks.length === 0 ? (
-                <div className="text-center py-12 text-muted-foreground">
+                <div className="text-center py-16 text-muted-foreground">
                   {searchQuery || priorityFilter !== "all" || statusFilter !== "all" ? (
-                    <p>No tasks match your filters</p>
+                    <div className="flex flex-col items-center gap-2">
+                      <Leaf className="h-12 w-12 text-accent/50 animate-gentle-bounce" />
+                      <p>No plants match your search in this garden</p>
+                    </div>
                   ) : (
-                    <p>No tasks yet. Press N to create your first task!</p>
+                    <div className="flex flex-col items-center gap-2">
+                      <TreeDeciduous className="h-16 w-16 text-accent/50 animate-gentle-bounce" />
+                      <p className="text-lg">Your garden is waiting to bloom!</p>
+                      <p className="text-sm">Press <kbd className="px-2 py-1 bg-accent/10 rounded">N</kbd> to plant your first seed</p>
+                    </div>
                   )}
                 </div>
               ) : (

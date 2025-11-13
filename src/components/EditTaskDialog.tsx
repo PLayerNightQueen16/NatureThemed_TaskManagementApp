@@ -90,10 +90,10 @@ export const EditTaskDialog = ({
               <SelectValue placeholder="Priority" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="critical">🔴 Critical</SelectItem>
-              <SelectItem value="high">🟠 High</SelectItem>
-              <SelectItem value="medium">🟡 Medium</SelectItem>
-              <SelectItem value="low">🟢 Low</SelectItem>
+              <SelectItem value="critical">🌺 Urgent</SelectItem>
+              <SelectItem value="high">🌲 High</SelectItem>
+              <SelectItem value="medium">🌻 Medium</SelectItem>
+              <SelectItem value="low">🌱 Low</SelectItem>
             </SelectContent>
           </Select>
 

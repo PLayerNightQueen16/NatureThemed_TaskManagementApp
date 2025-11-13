@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { KEYBOARD_SHORTCUTS } from "@/hooks/useKeyboardShortcuts";
-import { Keyboard } from "lucide-react";
+import { Keyboard, Leaf } from "lucide-react";
 
 interface KeyboardShortcutsDialogProps {
   open: boolean;
@@ -20,14 +20,15 @@ export const KeyboardShortcutsDialog = ({
 }: KeyboardShortcutsDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl shadow-medium border-border/50">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-2xl">
-            <Keyboard className="h-6 w-6" />
-            Keyboard Shortcuts
+            <Leaf className="h-6 w-6 text-accent animate-gentle-bounce" />
+            Garden Shortcuts
           </DialogTitle>
-          <DialogDescription>
-            Master these shortcuts to boost your productivity
+          <DialogDescription className="flex items-center gap-2">
+            <Keyboard className="h-4 w-4" />
+            Tend to your garden with ease using these shortcuts
           </DialogDescription>
         </DialogHeader>
 
@@ -45,9 +46,10 @@ export const KeyboardShortcutsDialog = ({
           ))}
         </div>
 
-        <div className="mt-4 p-4 bg-muted rounded-lg">
-          <p className="text-sm text-muted-foreground">
-            💡 <strong>Pro tip:</strong> Press <Badge variant="outline" className="mx-1">?</Badge> anytime to toggle this help dialog
+        <div className="mt-4 p-4 bg-muted/50 rounded-lg border border-border/50 shadow-soft">
+          <p className="text-sm text-muted-foreground flex items-center gap-2">
+            <Leaf className="h-4 w-4 text-accent" />
+            <strong>Garden tip:</strong> Press <Badge variant="outline" className="mx-1">?</Badge> anytime to see these shortcuts
           </p>
         </div>
       </DialogContent>

@@ -190,7 +190,10 @@ All colors MUST be HSL.
 
   @keyframes petal-fall {
     0% {
-      transform: translateY(-10vh) rotate(0deg);
+      transform: translateY(-50vh) rotate(0deg);
+      opacity: 1;
+    }
+    10% {
       opacity: 1;
     }
     100% {

@@ -9,29 +9,31 @@ interface ProgressBarProps {
 }
 
 const RainingFlowers = () => {
-  const flowers = Array.from({ length: 30 }, (_, i) => ({
+  const flowerEmojis = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '💐', '🌹'];
+  const flowers = Array.from({ length: 50 }, (_, i) => ({
     id: i,
+    emoji: flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)],
     left: Math.random() * 100,
-    delay: Math.random() * 4,
+    delay: Math.random() * 2,
     duration: 3 + Math.random() * 2,
-    size: 20 + Math.random() * 25,
-    rotation: Math.random() * 360,
+    size: 24 + Math.random() * 20,
   }));
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-50">
       {flowers.map((flower) => (
-        <Flower2
+        <div
           key={flower.id}
-          className="absolute text-destructive/60 animate-petal-fall"
-          size={flower.size}
+          className="absolute"
           style={{
             left: `${flower.left}%`,
+            fontSize: `${flower.size}px`,
+            animation: `petal-fall ${flower.duration}s ease-in forwards`,
             animationDelay: `${flower.delay}s`,
-            animationDuration: `${flower.duration}s`,
-            transform: `rotate(${flower.rotation}deg)`,
           }}
-        />
+        >
+          {flower.emoji}
+        </div>
       ))}
     </div>
   );

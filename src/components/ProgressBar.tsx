@@ -1,6 +1,7 @@
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Circle, Sprout, Flower2 } from "lucide-react";
+import { createPortal } from "react-dom";
 
 interface ProgressBarProps {
   progress: number;
@@ -19,7 +20,7 @@ const RainingFlowers = () => {
     size: 14 + Math.random() * 10,
   }));
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-50">
       {flowers.map((flower) => (
         <div
@@ -35,7 +36,8 @@ const RainingFlowers = () => {
           {flower.emoji}
         </div>
       ))}
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -43,7 +45,7 @@ export const ProgressBar = ({ progress, completed, total }: ProgressBarProps) =>
   const isComplete = completed === total && total > 0;
   
   return (
-    <Card className="p-6 shadow-medium bg-card/70 backdrop-blur-sm border-border/50 animate-gentle-fade-in relative overflow-hidden">
+    <Card className="p-6 shadow-medium bg-card/70 backdrop-blur-sm border-border/50 animate-gentle-fade-in relative overflow-visible">
       <Flower2 className="absolute -right-4 -top-4 h-24 w-24 text-accent/10 animate-gentle-bounce" />
       
       {isComplete && <RainingFlowers />}

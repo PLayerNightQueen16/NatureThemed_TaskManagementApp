@@ -9,14 +9,14 @@ interface ProgressBarProps {
 }
 
 const RainingFlowers = () => {
-  const flowerEmojis = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '💐', '🌹'];
-  const flowers = Array.from({ length: 50 }, (_, i) => ({
+  const flowerEmojis = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '💐', '🌹', '🌿', '🍃', '🪴'];
+  const flowers = Array.from({ length: 120 }, (_, i) => ({
     id: i,
     emoji: flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)],
     left: Math.random() * 100,
-    delay: Math.random() * 2,
-    duration: 3 + Math.random() * 2,
-    size: 24 + Math.random() * 20,
+    delay: Math.random() * 3,
+    duration: 2.5 + Math.random() * 2,
+    size: 14 + Math.random() * 10,
   }));
 
   return (

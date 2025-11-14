@@ -11,12 +11,12 @@ interface ProgressBarProps {
 
 const RainingFlowers = () => {
   const flowerEmojis = ['🌸', '🌺', '🌻', '🌼', '🌷', '🏵️', '💐', '🌹', '🌿', '🍃', '🪴'];
-  const flowers = Array.from({ length: 180 }, (_, i) => ({
+  const flowers = Array.from({ length: 250 }, (_, i) => ({
     id: i,
     emoji: flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)],
     left: Math.random() * 100,
-    delay: Math.random() * 4,
-    duration: 5 + Math.random() * 2.5,
+    delay: Math.random() * 2.5,
+    duration: 4 + Math.random() * 2,
     size: 14 + Math.random() * 10,
   }));
 

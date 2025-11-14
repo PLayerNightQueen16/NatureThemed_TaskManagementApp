@@ -187,4 +187,60 @@ All colors MUST be HSL.
   .animate-gentle-fade-in {
     animation: gentle-fade-in 0.8s ease-out forwards;
   }
+
+  @keyframes petal-fall {
+    0% {
+      transform: translateY(-10vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-petal-fall {
+    animation: petal-fall 4s ease-in infinite;
+  }
+
+  @keyframes gentle-bounce {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.05);
+    }
+  }
+
+  .animate-gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes leaf-float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+  }
+
+  .animate-leaf-float {
+    animation: leaf-float 5s ease-in-out infinite;
+  }
+
+  @keyframes water-shimmer {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-water-shimmer {
+    animation: water-shimmer 3s ease-in-out infinite;
+  }
 }
